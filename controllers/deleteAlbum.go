@@ -16,6 +16,9 @@ func DeleteAlbum(c *gin.Context) {
 
 	Albums = utils.DeleteAlbum(id, Albums)
 
-	fmt.Println("albums after delete", Albums)
+	//sort the albums after deletion
+	Albums = utils.MergeSort(Albums)
+	fmt.Println("albums after delete and sort", Albums)
+
 	c.IndentedJSON(http.StatusOK, gin.H{"message": "album deleted"})
 }

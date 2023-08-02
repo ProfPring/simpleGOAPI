@@ -2,6 +2,7 @@ package controllers
 
 import (
 	album "example/web-service-gin/structs"
+	utils "example/web-service-gin/utils"
 	"fmt"
 	"net/http"
 
@@ -19,6 +20,7 @@ func PostAlbums(c *gin.Context) {
 
 	// Add the new album to the slice.
 	Albums = append(Albums, newAlbum)
-	fmt.Println("new album added", newAlbum)
+	Albums = utils.MergeSort(Albums)
+	fmt.Println("new album added", newAlbum, Albums)
 	c.IndentedJSON(http.StatusCreated, newAlbum)
 }

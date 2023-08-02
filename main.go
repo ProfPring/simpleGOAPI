@@ -12,6 +12,7 @@ func main() {
 	router.POST("/postAlbums", controllers.PostAlbums)
 	router.GET("/albums/:id", controllers.GetAlbumByID)
 	router.DELETE("/DeleteAlbum/:id", controllers.DeleteAlbum)
+	router.PUT("/UpdateAlbum", controllers.EditAlbum)
 
 	router.Run("localhost:8080")
 }
