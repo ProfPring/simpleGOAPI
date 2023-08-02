@@ -26,7 +26,6 @@ func EditAlbum(c *gin.Context) {
 	}
 
 	if albumEdited {
-		Albums = utils.MergeSort(Albums)
 		c.IndentedJSON(http.StatusOK, "album edited")
 	} else {
 		c.IndentedJSON(http.StatusInternalServerError, "album has not been edited, it may not exist")
